@@ -1,0 +1,32 @@
+* {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    height: 100%;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+button {
+    position: absolute;
+    height: 4rem;
+    width: max-content;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 20px white;
+
+    background-image: linear-gradient(to right, #314755 0%, #26A0DA 51%, #314755 100%);
+    background-size: 200% auto;
+
+    text-transform: uppercase;
+    text-align: center;
+}
