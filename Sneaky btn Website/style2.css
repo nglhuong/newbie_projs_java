@@ -26,7 +26,7 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-left: -260px;
+    margin-left: -240px;
 }
 
 button {
@@ -62,4 +62,3 @@ button {
 #sneaky-btn {
     position: absolute;
 }
-  

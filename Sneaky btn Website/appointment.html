@@ -5,18 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style3.css">
 
     <title>Appointment</title>
 </head>
 <body>
-    <p>Some text</p>
-    <p>
-        <video autoplay loop muted>
-            <source src="resources/huong.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </p>
+    <div class="background"></div>
+    <div class="content">
+        <p class="txt1">Молодец!</p>
+        <p class="vid">
+            <video autoplay loop muted>
+                <source src="resources/huong.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </p>
+        <div class="txt2">В качестве приза можешь забить себе</div>
+        <div class="txt2">свидание с этой прекрасной дамой</div>
+        <p></p>
+        <form id="booking" action="bookAppointment" method="post">
+            <input type="text" id="name" name="Name" placeholder="Name" required>
+            <input type="date" id="date" name="Date" placeholder="Date" plarequired>
+            <input type="time" id="time" name="Time" placeholder="Time" required>
+            <button type="button" onclick="saveAppointment()">Забронировать</button>
+        </form>
+    </div>
+    <script>
+        function saveAppointment() {
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (!name || !date || !time) {
+                alert("Пожалуйста, заполните все поля");
+                return;
+            }
+
+            const appointment = {
+                name: name,
+                date: date,
+                time: time
+            };
+
+            localStorage.setItem('appointment', JSON.stringify(appointment));
+
+            alert(`Свидание успешно забронировано для ${name} на ${date} в ${time}!`);
+        }
+
+        function getAppointment() {
+            const storedAppointment = localStorage.getItem('appointment');
+            if (storedAppointment) {
+                const appointment = JSON.parse(storedAppointment);
+                alert(`Имя: ${appointment.name}, Дата: ${appointment.date}, Время: ${appointment.time}`);
+            } else {
+                alert("Нет сохраненных данных о записи.");
+            }
+        }
+    </script>
 </body>
 </html>
